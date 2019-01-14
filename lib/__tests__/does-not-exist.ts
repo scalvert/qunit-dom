@@ -72,10 +72,6 @@ describe('assert.dom(...).doesNotExist()', () => {
   });
 
   test('throws for unexpected parameter types', () => {
-    expect(() => assert.dom(document.body).doesNotExist()).toThrow(
-      'Unexpected Parameter: [object HTMLBodyElement]'
-    );
-
     expect(() => assert.dom(5).doesNotExist()).toThrow('Unexpected Parameter: 5');
     expect(() => assert.dom(true).doesNotExist()).toThrow('Unexpected Parameter: true');
     expect(() => assert.dom(undefined).doesNotExist()).toThrow('Unexpected Parameter: undefined');

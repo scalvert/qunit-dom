@@ -41,6 +41,24 @@ describe('assert.dom(...).exists()', () => {
     });
   });
 
+  describe('Element only', () => {
+    test('succeeds if element exists', () => {
+      document.body.innerHTML = '<h1 class="baz">foo</h1>bar';
+
+      const h1Element = document.querySelector('h1');
+      assert.dom(h1Element).exists();
+
+      expect(assert.results).toEqual([
+        {
+          actual: 'Element H1 exists',
+          expected: 'Element H1 exists',
+          message: 'Element H1 exists',
+          result: true,
+        },
+      ]);
+    });
+  });
+
   describe('custom messages', () => {
     test('without options', () => {
       document.body.innerHTML = '<h1 class="baz">foo</h1>bar';
@@ -136,10 +154,6 @@ describe('assert.dom(...).exists()', () => {
   });
 
   test('throws for unexpected parameter types', () => {
-    expect(() => assert.dom(document.body).exists()).toThrow(
-      'Unexpected Parameter: [object HTMLBodyElement]'
-    );
-
     expect(() => assert.dom(5).exists()).toThrow('Unexpected Parameter: 5');
     expect(() => assert.dom(true).exists()).toThrow('Unexpected Parameter: true');
     expect(() => assert.dom(undefined).exists()).toThrow('Unexpected Parameter: undefined');
