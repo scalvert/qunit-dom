@@ -2,6 +2,7 @@
 
 export default function elementToString(el) {
   let desc;
+
   if (el instanceof NodeList) {
     if (el.length === 0) {
       return 'empty NodeList';

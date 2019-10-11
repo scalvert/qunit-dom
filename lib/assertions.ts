@@ -1069,6 +1069,8 @@ export default class DOMAssertions {
       return this.target;
     } else if (this.target instanceof Element) {
       return elementToString(this.target);
+    } else {
+      return '<not found>';
     }
   }
 }

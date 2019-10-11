@@ -6,7 +6,7 @@ export default function isVisible(options, message) {
     options = undefined;
   }
 
-  let elements = this.findElements(this.target).filter(visible);
+  let elements = this.findElements().filter(visible);
 
   let expectedCount = options ? options.count : null;
 

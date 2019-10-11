@@ -4,7 +4,7 @@ export default function exists(options, message) {
     options = undefined;
   }
 
-  let elements = this.findElements(this.target);
+  let elements = this.findElements();
 
   let expectedCount = options ? options.count : null;
 
